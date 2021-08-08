@@ -93,13 +93,23 @@ const Container = styled.div`
 
     @keyframes rotating {
         from {
-          transform: rotate(0deg);
+            transform: rotate(0deg);
         }
         to {
-          transform: rotate(360deg);
+            transform: rotate(360deg);
         }
     }
 `
+
+function isMobile() {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const windows = /windows phone/i.test(userAgent);
+    const android = /android/i.test(userAgent);
+    const iOs = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+    return windows || android || iOs;
+};
 
 function getInitialSentence() {
     const dateToday = new Date();
@@ -141,6 +151,8 @@ function App() {
     const [success, setSuccess] = useState(false);
     const [bestTime, setBestTime] = useState(null);
     const [newBestTime, setNewBestTime] = useState(false);
+
+    const isMobileDevice = isMobile();
 
     useEffect(() => () => clearInterval(intervalRef.current), []);
     useEffect(() => () => {
@@ -244,7 +256,7 @@ function App() {
             />
             <textarea
                 rows='3'
-                autoFocus={true}
+                autoFocus={!isMobileDevice}
                 value={userInput}
                 onChange={handleUserInputChange}
                 onKeyDown={handleKeyDown}
