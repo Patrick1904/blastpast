@@ -10,7 +10,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    min-height: 100vh;
     padding: 20px;
     font-size: 24px;
     max-width: 500px;
@@ -45,7 +45,7 @@ const Container = styled.div`
         margin: 20px 0;
 
         &.clear {
-            margin-bottom: 50px;
+            margin-bottom: 100px;
         }
     }
 
@@ -120,7 +120,7 @@ function getInitialSentence() {
 }
 
 const successMessages = [
-    "👏 Woo-hoo! great job!",
+    "👏 Woo-hoo! Great job!",
     "⭐ Woo-hoo let's go!",
     "💪 Awesome!",
     "🚀 You're a rocket ship!",

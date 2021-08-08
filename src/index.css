@@ -25,10 +25,6 @@ body {
     background-size: 30px 30px;
 }
 
-html, body, #root {
-    height: 100%;
-}
-
 code {
     color: var(--gray);
     font-size: 18px;
