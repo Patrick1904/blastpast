@@ -115,11 +115,8 @@ function getInitialSentence() {
     const dateToday = new Date();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = days[dateToday.getDay()];
-    let initial = `Ready for a ${today} session?`;
+    let initial = `Ready for a ${today} session`;
 
-    if (today === 'Monday') {
-        initial = `How was your weekend?`;
-    }
     if (today === 'Friday') {
         initial = `${today} has arrived`;
     }
