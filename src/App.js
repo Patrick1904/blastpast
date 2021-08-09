@@ -152,7 +152,7 @@ function App() {
     const [bestTime, setBestTime] = useState(null);
     const [newBestTime, setNewBestTime] = useState(false);
 
-    const isMobileDevice = isMobile();
+    const isMobileDevice = isMobile(); // Move out?
 
     useEffect(() => () => clearInterval(intervalRef.current), []);
     useEffect(() => () => {
@@ -243,7 +243,7 @@ function App() {
                 {
                     !bestTime
                         ? <>No best time yet.<br />Give it try!</>
-                        : <>Your best time is <br /><span className='result'>{bestTime} ms</span> 😎</>
+                        : <>Your best time is<br /><span className='result'>{bestTime} ms</span> 😎</>
                 }
             </div>
             <textarea
