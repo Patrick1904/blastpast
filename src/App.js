@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, createRef } from 'react';
 import styled from 'styled-components';
 import randomWords from 'random-words';
 
@@ -140,6 +140,7 @@ const successMessages = [
 ];
 
 function App() {
+    const userInputRef = createRef();
     const intervalRef = useRef();
     const [total, setTotal] = useState(0);
     const [isCounting, setIsCounting] = useState(false);
@@ -252,6 +253,7 @@ function App() {
                 autoCorrect='off'
             />
             <textarea
+                ref={userInputRef}
                 rows='3'
                 autoFocus={!isMobileDevice}
                 value={userInput}
@@ -268,7 +270,13 @@ function App() {
                 ? <div className='timer'>{total} ms</div>
                 : <div className='timer'>{successMessages[Math.floor(Math.random() * 10)]}</div>
             }
-            <button onClick={onClearBtnClick} className='clear'>
+            <button
+                className='clear'
+                onClick={() => {
+                    onClearBtnClick();
+                    userInputRef.current.focus();
+                }}
+            >
                 Clear
             </button>
             <code>Version 1.0</code>
